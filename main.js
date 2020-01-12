@@ -12,6 +12,7 @@ app.use(layouts);
 
 // contollers
 const homeController = require("./controllers/homeController");
+const errorController = require("./controllers/errorController");
 
 // middleware
 app.use(
@@ -27,6 +28,10 @@ app.get('/', homeController.home);
 app.get('/courses', homeController.showCourses);
 app.get('/contact', homeController.showSignUp);
 app.post('/contact', homeController.postedSignUpForm);
+
+// error routes
+app.use(errorController.pageNotFoundError);
+app.use(errorController.internalServerError);
 
 // server
 app.listen(app.get('port'), () => {
