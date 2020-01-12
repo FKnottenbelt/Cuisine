@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 app.set('port', process.env.PORT || 8080);
 
+// serving static files
+app.use(express.static('public'));
+
 // template engine
 app.set("view engine", "ejs");
 const layouts = require("express-ejs-layouts");
