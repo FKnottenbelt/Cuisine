@@ -42,7 +42,7 @@ app.get('/', homeController.home);
 app.get('/courses', homeController.showCourses);
 app.get('/subscribers', subscriberController.getAllSubscribers);
 app.get('/contact', subscriberController.showSignUp);
-app.post('/contact', subscriberController.postedSignUpForm);
+app.post('/subscribe', subscriberController.postedSignUpForm);
 
 // error routes
 app.use(errorController.pageNotFoundError);

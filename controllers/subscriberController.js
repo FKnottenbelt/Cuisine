@@ -5,7 +5,20 @@ exports.showSignUp = (req, res) => {
 };
 
 exports.postedSignUpForm = (req, res) => {
-  res.render('thanks');
+  let newSubscriber = new Subscriber({
+    name: req.body.name,
+    email: req.body.email,
+    zipCode: req.body.zipcode,
+  });
+
+  newSubscriber.save()
+    .then(() => {
+      res.render('thanks');
+    })
+    .catch(error => {
+      console.log(error);
+      res.send("Input error");
+    });
 };
 
 exports.getAllSubscribers = (req, res) => {
