@@ -16,8 +16,7 @@ exports.postedSignUpForm = (req, res) => {
       res.render('thanks');
     })
     .catch(error => {
-      console.log(error);
-      res.send("Input error");
+      res.send(error);
     });
 };
 
